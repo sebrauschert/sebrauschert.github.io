@@ -194,23 +194,23 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-left max-w-4xl mx-auto"
+                className="text-left max-w-6xl mx-auto"
               >
                 <motion.h1 
-                  className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#88C0D0] to-[#5E81AC] bg-clip-text text-transparent"
-                  animate={{ 
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{ 
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: 'linear'
-                  }}
+                  className="text-7xl md:text-8xl font-bold mb-6 text-[#BF616A] whitespace-nowrap overflow-visible"
                 >
                   Sebastian Rauschert
                 </motion.h1>
                 <p className="text-xl md:text-2xl mb-4 text-[#88C0D0]">
-                  Principal Data Scientist at INSiGENe
+                  Principal Data Scientist at{" "}
+                  <a 
+                    href="https://insigene.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1]"
+                  >
+                    INSiGENe
+                  </a>
                 </p>
                 <p className="text-lg text-[#D8DEE9] mb-8 max-w-3xl">
                   Technical leader with 12+ years in data science, computational biology, and machine learning. 

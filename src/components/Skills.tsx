@@ -18,7 +18,6 @@ const skills: Skill[] = [
   { name: "Machine Learning", level: 85, category: "Data Science & ML" },
   { name: "Data Visualization", level: 90, category: "Data Science & ML" },
   { name: "Predictive Modeling", level: 85, category: "Data Science & ML" },
-  { name: "Time Series Analysis", level: 80, category: "Data Science & ML" },
 
   // Tools & Technologies
   { name: "Docker", level: 80, category: "Tools & Technologies" },

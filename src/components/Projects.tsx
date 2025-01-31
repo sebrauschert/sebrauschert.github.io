@@ -1,4 +1,8 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import ProjectPage from './ProjectPage';
+import ednaImage from '../assets/edna.png';
+import varppLogo from '../assets/varpp-logo.png';
 
 interface Project {
   title: string;
@@ -6,78 +10,134 @@ interface Project {
   tags: string[];
   image: string;
   link: string;
+  longDescription?: string;
+  challenges?: string[];
+  solutions?: string[];
+  impact?: string[];
+  technologies?: {
+    category: string;
+    items: string[];
+  }[];
 }
 
 const projects: Project[] = [
   {
-    title: "Genomic Data Analysis Pipeline",
-    description: "Developed an automated pipeline for processing and analyzing large-scale genomic data. Implemented parallel processing techniques to handle multiple samples simultaneously, reducing processing time by 60%.",
-    tags: ["R", "Bioconductor", "Parallel Computing", "Genomics", "Docker"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/genomics-pipeline"
+    title: "varppRule",
+    description: "Developed an interpretable machine learning package for variant prioritization in rare genetic diseases. The model combines RuleFit with tissue expression data to provide human-readable rules for variant pathogenicity prediction.",
+    tags: ["R", "Machine Learning", "Bioinformatics", "RuleFit", "Package Development"],
+    image: varppLogo,
+    link: "https://github.com/sebrauschert/varppRule",
+    longDescription: "An R package implementing a novel approach to variant prioritization in rare genetic diseases. varppRule combines the interpretability of rule-based machine learning with tissue-specific expression data to create transparent, actionable predictions for genetic variants.",
+    challenges: [
+      "Creating interpretable predictions for complex genetic data",
+      "Integrating multiple data sources (variants, tissue expression)",
+      "Balancing model performance with rule interpretability",
+      "Handling high-dimensional genomic data efficiently"
+    ],
+    solutions: [
+      "Implemented RuleFit algorithm for transparent rule generation",
+      "Developed custom data integration pipeline for variant and expression data",
+      "Created automated report generation with detailed model statistics",
+      "Built efficient parallel processing capabilities"
+    ],
+    impact: [
+      "Enabled human-readable predictions for variant pathogenicity",
+      "Improved rare disease diagnosis through interpretable ML",
+      "Facilitated better understanding of variant effects across tissues",
+      "Open-source contribution to the bioinformatics community"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "RuleFit", "Machine Learning"]
+      },
+      {
+        category: "Data Processing",
+        items: ["Bioconductor", "parallel", "data.table"]
+      },
+      {
+        category: "Documentation",
+        items: ["R Markdown", "roxygen2", "knitr"]
+      }
+    ]
   },
   {
     title: "Environmental Data Dashboard",
-    description: "Created an interactive Shiny dashboard for visualizing and analyzing environmental sensor data. Features real-time data processing, anomaly detection, and automated reporting system.",
-    tags: ["R", "Shiny", "Time Series", "Machine Learning", "PostgreSQL"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/env-dashboard"
+    description: "Created an interactive Shiny dashboard for visualizing and analyzing environmental DNA data. Features a map-based interface for exploring DNA detections across a region, and a large language model chatbot for answering questions about the data.",
+    tags: ["R", "Shiny", "Machine Learning", "leaflet"],
+    image: ednaImage,
+    link: "edna.minderoo.org",
+    longDescription: "An interactive dashboard built with R Shiny that provides visualization and analysis of environmental DNA data.",
+    challenges: [
+      "Implementing responsive visualizations for large datasets",
+      "Mapping individual DNA based detections to taxonomic cards on a map",
+      "Creating an intuitive user interface"
+    ],
+    solutions: [
+      "Optimized data processing with dplyr and data.table",
+      "Implemented reactive programming patterns",
+      "Led the development of custom machine learning models",
+      "Created modular UI components"
+    ],
+    impact: [
+      "Enabled interactive visualisation for stakeholders, demonstrating the power of eDNA in environmental monitoring",
+      "Data decision making absed on easy exploration was sped up through the use of the dashboard in a no-code way",
+      "Improved data-driven decision making enabled by the dashboard"
+    ],
+    technologies: [
+      {
+        category: "Frontend",
+        items: ["R Shiny", "CSS", "JavaScript"]
+      },
+      {
+        category: "Backend",
+        items: ["R"]
+      },
+      {
+        category: "Analytics",
+        items: ["tidyverse", "leaflet"]
+      }
+    ]
   },
   {
-    title: "Clinical Trial Data Analysis",
-    description: "Built a comprehensive analysis toolkit for clinical trial data, including automated statistical testing, survival analysis, and publication-ready visualizations using R and Python.",
-    tags: ["R", "Python", "Statistics", "Survival Analysis", "ggplot2"],
+    title: "ENCODE RNA-seq Pipeline @ TKI",
+    description: "Implemented and customized the ENCODE RNA-seq pipeline at Telethon Kids Institute using DataLad for reproducible analysis. Created a modular architecture with automated setup and execution scripts.",
+    tags: ["DataLad", "RNA-seq", "Singularity", "Bioinformatics", "Pipeline Development"],
     image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/clinical-trials"
-  },
-  {
-    title: "ML Model Deployment Framework",
-    description: "Developed a framework for deploying machine learning models in production. Includes model versioning, A/B testing capabilities, and automated performance monitoring.",
-    tags: ["Python", "Docker", "MLflow", "FastAPI", "PostgreSQL"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/ml-deployment"
-  },
-  {
-    title: "Automated Report Generation System",
-    description: "Created a system for generating automated research reports using R Markdown and Python. Includes data validation, statistical analysis, and customizable visualization templates.",
-    tags: ["R Markdown", "Python", "LaTeX", "Git", "CI/CD"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/auto-reports"
-  },
-  {
-    title: "Biomarker Discovery Pipeline",
-    description: "Implemented a machine learning pipeline for identifying potential biomarkers from high-dimensional biological data. Includes feature selection, cross-validation, and biological pathway analysis.",
-    tags: ["R", "Machine Learning", "Bioinformatics", "Statistics"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/biomarker-discovery"
-  },
-  {
-    title: "Real-time Data Processing System",
-    description: "Developed a system for processing and analyzing streaming sensor data in real-time. Includes automated quality control, anomaly detection, and alert generation.",
-    tags: ["Python", "Kafka", "Docker", "Time Series", "MongoDB"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/realtime-processing"
-  },
-  {
-    title: "Statistical Analysis Package",
-    description: "Created an R package implementing novel statistical methods for analyzing complex experimental designs. Includes comprehensive documentation and vignettes.",
-    tags: ["R", "Package Development", "Statistics", "Unit Testing"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/stats-package"
-  },
-  {
-    title: "Data Quality Control Framework",
-    description: "Built a comprehensive framework for automated data quality assessment and cleaning. Includes customizable validation rules and detailed quality reports.",
-    tags: ["Python", "pandas", "SQL", "Data Validation"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/data-quality"
-  },
-  {
-    title: "Meta-analysis Toolkit",
-    description: "Developed tools for conducting systematic reviews and meta-analyses of research literature. Includes effect size calculation, forest plots, and publication bias assessment.",
-    tags: ["R", "Meta-analysis", "Statistics", "Visualization"],
-    image: "https://via.placeholder.com/500x300",
-    link: "https://github.com/yourusername/meta-analysis"
+    link: "https://github.com/sebrauschert/encode_pipeline_tki",
+    longDescription: "A comprehensive implementation of the ENCODE RNA-seq pipeline, adapted for use at Telethon Kids Institute. The project features a modular DataLad-based architecture, containerized execution environment, and automated setup scripts for reproducible analysis.",
+    challenges: [
+      "Setting up reproducible analysis environment across different systems",
+      "Managing large-scale genomic data and indices efficiently",
+      "Integrating multiple tools and dependencies",
+      "Ensuring pipeline portability and ease of use"
+    ],
+    solutions: [
+      "Implemented DataLad for version control and data management",
+      "Created modular architecture for pipeline components",
+      "Developed automated setup and execution scripts",
+      "Built Singularity container for consistent execution"
+    ],
+    impact: [
+      "Enabled reproducible RNA-seq analysis across the institute",
+      "Reduced setup time for new analyses from days to hours",
+      "Standardized RNA-seq processing workflows",
+      "Facilitated collaboration through portable pipeline design"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["DataLad", "Singularity", "Conda"]
+      },
+      {
+        category: "Pipeline Components",
+        items: ["ENCODE RNA-seq", "Caper", "Croo"]
+      },
+      {
+        category: "Infrastructure",
+        items: ["Slurm", "Shell Scripting", "Git"]
+      }
+    ]
   }
 ];
 
@@ -97,6 +157,17 @@ const item = {
 };
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  if (selectedProject) {
+    return (
+      <ProjectPage 
+        project={selectedProject} 
+        onBack={() => setSelectedProject(null)} 
+      />
+    );
+  }
+
   return (
     <div className="container mx-auto px-4 py-24">
       <motion.h2 
@@ -115,11 +186,12 @@ export default function Projects() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        {projects.map((project, index) => (
+        {projects.slice(0, 3).map((project, index) => (
           <motion.div
             key={index}
             variants={item}
-            className="bg-[#3B4252] p-6 rounded-lg shadow-lg group"
+            className="bg-[#3B4252] p-6 rounded-lg shadow-lg group cursor-pointer"
+            onClick={() => setSelectedProject(project)}
           >
             <div className="relative overflow-hidden rounded-lg mb-4">
               <img 
@@ -144,13 +216,10 @@ export default function Projects() {
               ))}
             </div>
             
-            <a 
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+            <div 
               className="inline-flex items-center text-[#88C0D0] hover:text-[#81A1C1] transition-colors"
             >
-              View Project
+              View Details
               <svg 
                 className="w-4 h-4 ml-2" 
                 fill="none" 
@@ -164,7 +233,7 @@ export default function Projects() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3" 
                 />
               </svg>
-            </a>
+            </div>
           </motion.div>
         ))}
       </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import resume from '../assets/resume.pdf';
 
 interface Experience {
   title: string;
@@ -76,23 +77,41 @@ const education: Education[] = [
 
 const skills = {
   "Programming Languages": ["R", "Python", "SQL", "Bash/Shell"],
-  "Data Science": ["Statistical Analysis", "Machine Learning", "Data Visualization", "Reproducible Research"],
-  "Tools & Technologies": ["Docker", "Git", "Conda", "High-Performance Computing"],
-  "Databases": ["PostgreSQL", "MongoDB", "SQLite"],
+  "Data Science": ["Statistical Analysis", "Machine Learning", "Data Visualization", "Reproducible Analytics"],
+  "Tools & Technologies": ["Docker", "Git", "Conda", "High-Performance Computing", "Cloud Computing"],
+  "Databases": ["PostgreSQL", "SQLite"],
   "Other": ["Technical Writing", "Project Management", "Team Leadership"]
 };
 
 export default function Resume() {
   return (
     <div className="container mx-auto px-4 py-24">
-      <motion.h2 
-        className="text-3xl font-bold text-[#88C0D0] text-center mb-16"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        Professional Experience
-      </motion.h2>
+      <div className="flex justify-between items-center mb-16">
+        <motion.h2 
+          className="text-3xl font-bold text-[#88C0D0] text-center"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Professional Experience
+        </motion.h2>
+        <motion.a
+          href="https://raw.githubusercontent.com/sebrauschert/sebrauschert.github.io/main/src/assets/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-colors"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download Resume
+        </motion.a>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content - Experience & Education */}
@@ -111,7 +130,39 @@ export default function Resume() {
                 <div className="flex flex-wrap justify-between items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-[#88C0D0]">{exp.title}</h3>
-                    <p className="text-[#D8DEE9]">{exp.company}</p>
+                    <p className="text-[#D8DEE9]">
+                      {exp.company === "INSiGENe Pty Ltd" ? (
+                        <>
+                          <a 
+                            href="https://insigene.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1]"
+                          >
+                            INSiGENe
+                          </a>
+                          {" Pty Ltd"}
+                        </>
+                      ) : exp.company === "Minderoo Foundation" ? (
+                        <a 
+                          href="https://minderoo.org" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1]"
+                        >
+                          Minderoo Foundation
+                        </a>
+                      ) : exp.company === "Telethon Kids Institute" ? (
+                        <a 
+                          href="https://www.telethonkids.org.au" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1]"
+                        >
+                          Telethon Kids Institute
+                        </a>
+                      ) : exp.company}
+                    </p>
                   </div>
                   <span className="text-[#81A1C1]">{exp.period}</span>
                 </div>
@@ -198,31 +249,6 @@ export default function Resume() {
                 ))}
               </div>
             </motion.div>
-
-            {/* Download Resume Button */}
-            <motion.a
-              href="/assets/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-colors w-full text-center flex items-center justify-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <svg 
-                className="w-5 h-5 mr-2" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-                />
-              </svg>
-              Download Resume
-            </motion.a>
           </div>
         </div>
       </div>
