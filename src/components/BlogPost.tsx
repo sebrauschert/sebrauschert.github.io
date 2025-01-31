@@ -20,7 +20,7 @@ export default function BlogPost({ post, onBack }: BlogPostProps) {
     <div className="container mx-auto px-4 py-24">
       <motion.button
         onClick={onBack}
-        className="mb-8 flex items-center text-primary hover:text-primary/80 transition-colors"
+        className="mb-8 flex items-center text-[#88C0D0] hover:text-[#81A1C1] transition-colors"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -56,14 +56,14 @@ export default function BlogPost({ post, onBack }: BlogPostProps) {
           />
         </div>
 
-        <div className="flex items-center space-x-2 text-sm text-gray-400 mb-4">
+        <div className="flex items-center space-x-2 text-sm text-[#D8DEE9] mb-4">
           <span>{post.date}</span>
           <span>•</span>
           <span>{post.readTime}</span>
         </div>
 
         <motion.h1 
-          className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#88C0D0] to-[#5E81AC] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -75,7 +75,7 @@ export default function BlogPost({ post, onBack }: BlogPostProps) {
           {post.tags.map((tag, index) => (
             <span 
               key={index}
-              className="px-3 py-1 text-sm bg-gray-700 rounded-full text-gray-300"
+              className="px-3 py-1 text-sm bg-[#4C566A] rounded-full text-[#E5E9F0]"
             >
               {tag}
             </span>
@@ -84,31 +84,31 @@ export default function BlogPost({ post, onBack }: BlogPostProps) {
 
         {/* Example blog content */}
         <div className="prose prose-invert prose-lg max-w-none">
-          <p className="lead">{post.excerpt}</p>
+          <p className="text-[#D8DEE9]">{post.excerpt}</p>
           
-          <h2>Introduction</h2>
-          <p>
+          <h2 className="text-[#88C0D0]">Introduction</h2>
+          <p className="text-[#D8DEE9]">
             In the ever-evolving landscape of data science, maintaining reproducible research has become more critical than ever. 
             This article explores the current state of reproducible research and provides practical guidelines for implementing 
             robust reproducibility practices in your work.
           </p>
 
-          <h2>Key Components of Reproducible Research</h2>
-          <ul>
+          <h2 className="text-[#88C0D0]">Key Components of Reproducible Research</h2>
+          <ul className="text-[#D8DEE9]">
             <li>Version Control and Documentation</li>
             <li>Environment Management</li>
             <li>Data Pipeline Automation</li>
             <li>Automated Testing and Validation</li>
           </ul>
 
-          <h2>Best Practices and Tools</h2>
-          <p>
+          <h2 className="text-[#88C0D0]">Best Practices and Tools</h2>
+          <p className="text-[#D8DEE9]">
             Modern tools have made it easier than ever to ensure your research is reproducible. Here are some essential 
             practices and tools that every data scientist should consider:
           </p>
 
-          <pre className="bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code className="text-sm">
+          <pre className="bg-[#3B4252] p-4 rounded-lg overflow-x-auto">
+            <code className="text-sm text-[#D8DEE9]">
               {`# Example R code for reproducible analysis
 library(tidyverse)
 library(renv)  # For dependency management
@@ -123,8 +123,8 @@ data <- read_csv("data/raw/dataset.csv") %>%
             </code>
           </pre>
 
-          <h2>Conclusion</h2>
-          <p>
+          <h2 className="text-[#88C0D0]">Conclusion</h2>
+          <p className="text-[#D8DEE9]">
             Implementing reproducible research practices may require initial investment in time and resources, but the long-term 
             benefits far outweigh the costs. By following these guidelines and utilizing modern tools, you can ensure your 
             research stands the test of time and scrutiny.
