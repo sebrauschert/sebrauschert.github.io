@@ -26,9 +26,14 @@ function App() {
         className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl px-4"
       >
         <motion.div 
-          className="bg-[#3B4252]/80 backdrop-blur-lg rounded-3xl shadow-lg overflow-hidden"
-          animate={{
+          className="bg-[#3B4252]/80 backdrop-blur-lg shadow-lg overflow-hidden"
+          initial={{ borderRadius: "9999px" }}
+          animate={{ 
             borderRadius: isMenuOpen ? "1.5rem" : "9999px"
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut"
           }}
         >
           {/* Mobile Menu Button */}
