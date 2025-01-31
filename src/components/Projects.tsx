@@ -3,6 +3,11 @@ import { useState } from 'react';
 import ProjectPage from './ProjectPage';
 import ednaImage from '../assets/edna.png';
 import varppLogo from '../assets/varpp-logo.png';
+import encodeImage from '../assets/encode.png';
+import dnaSmokeLogo from '../assets/DNAsmokeR.png';
+import insigeneLogo from '../assets/insigene.png';
+import tkiepiLogo from '../assets/tkiepi.png';
+import portalLogo from '../assets/portal.png';
 
 interface Project {
   title: string;
@@ -22,42 +27,42 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "varppRule",
-    description: "Developed an interpretable machine learning package for variant prioritization in rare genetic diseases. The model combines RuleFit with tissue expression data to provide human-readable rules for variant pathogenicity prediction.",
-    tags: ["R", "Machine Learning", "Bioinformatics", "RuleFit", "Package Development"],
-    image: varppLogo,
-    link: "https://github.com/sebrauschert/varppRule",
-    longDescription: "An R package implementing a novel approach to variant prioritization in rare genetic diseases. varppRule combines the interpretability of rule-based machine learning with tissue-specific expression data to create transparent, actionable predictions for genetic variants.",
+    title: "INSiGENe Client Portal (In Progress)",
+    description: "Building a full-stack web application for secure file sharing and user management at INSiGENe. Features include user authentication, file management, and administrative controls, built with React, FastAPI, and PostgreSQL.",
+    tags: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Docker"],
+    image: portalLogo,
+    link: "https://github.com/sebrauschert/client-portal",
+    longDescription: "A comprehensive client portal that implements secure file sharing and user management for INSiGENe's consulting work. The application features a modern React frontend, FastAPI backend, and PostgreSQL database, all containerized with Docker.",
     challenges: [
-      "Creating interpretable predictions for complex genetic data",
-      "Integrating multiple data sources (variants, tissue expression)",
-      "Balancing model performance with rule interpretability",
-      "Handling high-dimensional genomic data efficiently"
+      "Implementing secure file sharing and user authentication",
+      "Creating an intuitive interface for file management",
+      "Setting up containerized development and production environments",
+      "Managing complex user permissions and access controls"
     ],
     solutions: [
-      "Implemented RuleFit algorithm for transparent rule generation",
-      "Developed custom data integration pipeline for variant and expression data",
-      "Created automated report generation with detailed model statistics",
-      "Built efficient parallel processing capabilities"
+      "Built JWT-based authentication system",
+      "Developed responsive React interface with TypeScript",
+      "Implemented Docker containerization for consistent deployment",
+      "Created comprehensive monitoring and maintenance procedures"
     ],
     impact: [
-      "Enabled human-readable predictions for variant pathogenicity",
-      "Improved rare disease diagnosis through interpretable ML",
-      "Facilitated better understanding of variant effects across tissues",
-      "Open-source contribution to the bioinformatics community"
+      "Streamlined client file sharing process",
+      "Enhanced security with role-based access control",
+      "Improved system maintainability through containerization",
+      "Enabled efficient user management for administrators"
     ],
     technologies: [
       {
-        category: "Core Technologies",
-        items: ["R", "RuleFit", "Machine Learning"]
+        category: "Frontend",
+        items: ["React", "TypeScript", "TailwindCSS"]
       },
       {
-        category: "Data Processing",
-        items: ["Bioconductor", "parallel", "data.table"]
+        category: "Backend",
+        items: ["FastAPI", "Python", "PostgreSQL"]
       },
       {
-        category: "Documentation",
-        items: ["R Markdown", "roxygen2", "knitr"]
+        category: "DevOps",
+        items: ["Docker", "Nginx", "JWT"]
       }
     ]
   },
@@ -100,10 +105,90 @@ const projects: Project[] = [
     ]
   },
   {
+    title: "insigene R Package",
+    description: "Developed an R package for standardizing and streamlining consulting work at INSiGENe. Features include branded report templates, custom ggplot2 themes, and automated project setup functionality.",
+    tags: ["R", "Package Development", "Quarto", "ggplot2", "Project Management"],
+    image: insigeneLogo,
+    link: "https://github.com/sebrauschert/insigene",
+    longDescription: "A comprehensive R package that implements INSiGENe's consulting workflow standards. The package provides tools for creating branded reports, managing project structures, and maintaining consistent visual identity across analyses.",
+    challenges: [
+      "Creating consistent branding across different report types",
+      "Implementing flexible project structure templates",
+      "Developing maintainable ggplot2 themes",
+      "Streamlining package management for projects"
+    ],
+    solutions: [
+      "Built customizable Quarto templates for branded reports",
+      "Created automated project directory setup with git integration",
+      "Developed dark and light mode ggplot2 themes",
+      "Implemented efficient package loading functionality"
+    ],
+    impact: [
+      "Standardized consulting workflow across the company",
+      "Reduced project setup time from hours to minutes",
+      "Ensured consistent branding across all deliverables",
+      "Improved reproducibility of consulting projects"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "Quarto", "ggplot2"]
+      },
+      {
+        category: "Development Tools",
+        items: ["Git", "RStudio", "devtools"]
+      },
+      {
+        category: "Documentation",
+        items: ["R Markdown", "HTML", "CSS"]
+      }
+    ]
+  },
+  {
+    title: "varppRule",
+    description: "Developed an interpretable machine learning package for variant prioritization in rare genetic diseases. The model combines RuleFit with tissue expression data to provide human-readable rules for variant pathogenicity prediction.",
+    tags: ["R", "Machine Learning", "Bioinformatics", "RuleFit", "Package Development"],
+    image: varppLogo,
+    link: "https://github.com/sebrauschert/varppRule",
+    longDescription: "An R package implementing a novel approach to variant prioritization in rare genetic diseases. varppRule combines the interpretability of rule-based machine learning with tissue-specific expression data to create transparent, actionable predictions for genetic variants.",
+    challenges: [
+      "Creating interpretable predictions for complex genetic data",
+      "Integrating multiple data sources (variants, tissue expression)",
+      "Balancing model performance with rule interpretability",
+      "Handling high-dimensional genomic data efficiently"
+    ],
+    solutions: [
+      "Implemented RuleFit algorithm for transparent rule generation",
+      "Developed custom data integration pipeline for variant and expression data",
+      "Created automated report generation with detailed model statistics",
+      "Built efficient parallel processing capabilities"
+    ],
+    impact: [
+      "Enabled human-readable predictions for variant pathogenicity",
+      "Improved rare disease diagnosis through interpretable ML",
+      "Facilitated better understanding of variant effects across tissues",
+      "Open-source contribution to the bioinformatics community"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "RuleFit", "Machine Learning"]
+      },
+      {
+        category: "Data Processing",
+        items: ["Bioconductor", "parallel", "data.table"]
+      },
+      {
+        category: "Documentation",
+        items: ["R Markdown", "roxygen2", "knitr"]
+      }
+    ]
+  },
+  {
     title: "ENCODE RNA-seq Pipeline @ TKI",
     description: "Implemented and customized the ENCODE RNA-seq pipeline at Telethon Kids Institute using DataLad for reproducible analysis. Created a modular architecture with automated setup and execution scripts.",
     tags: ["DataLad", "RNA-seq", "Singularity", "Bioinformatics", "Pipeline Development"],
-    image: "https://via.placeholder.com/500x300",
+    image: encodeImage,
     link: "https://github.com/sebrauschert/encode_pipeline_tki",
     longDescription: "A comprehensive implementation of the ENCODE RNA-seq pipeline, adapted for use at Telethon Kids Institute. The project features a modular DataLad-based architecture, containerized execution environment, and automated setup scripts for reproducible analysis.",
     challenges: [
@@ -136,6 +221,86 @@ const projects: Project[] = [
       {
         category: "Infrastructure",
         items: ["Slurm", "Shell Scripting", "Git"]
+      }
+    ]
+  },
+  {
+    title: "DNAsmokeR",
+    description: "Developed an R package implementing a novel DNA methylation score for detecting fetal exposure to maternal smoking during pregnancy. The package uses machine learning methods to analyze DNA methylation data and provides interactive visualization tools.",
+    tags: ["R", "Machine Learning", "Bioinformatics", "Package Development", "DNA Methylation"],
+    image: dnaSmokeLogo,
+    link: "https://github.com/Hobbeist/DNAsmokeR",
+    longDescription: "An R package that implements a cross-continent poly-DNA methylation score for detecting fetal exposure to maternal smoking. The package includes functions for score calculation, visualization, and an interactive Shiny application for data exploration.",
+    challenges: [
+      "Developing accurate machine learning models for DNA methylation analysis",
+      "Creating a score that works across different populations and age groups",
+      "Handling large-scale methylation data efficiently",
+      "Building user-friendly interfaces for complex genomic analyses"
+    ],
+    solutions: [
+      "Implemented elastic net regression for robust score calculation",
+      "Validated the model across multiple cohorts (Raine Study, NFBC1986, NFBC1966)",
+      "Created efficient data processing pipelines for methylation data",
+      "Developed interactive visualization tools with R Shiny"
+    ],
+    impact: [
+      "Achieved 91% sensitivity and 76% specificity in the Raine cohort",
+      "Outperformed three previously developed methylation scores",
+      "Enabled biomarker detection for fetal smoke exposure",
+      "Facilitated research into early life environmental impacts"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "Machine Learning", "Statistics"]
+      },
+      {
+        category: "Data Analysis",
+        items: ["Bioconductor", "elastic net", "cross-validation"]
+      },
+      {
+        category: "Visualization",
+        items: ["R Shiny", "ggplot2", "Interactive Plots"]
+      }
+    ]
+  },
+  {
+    title: "TKIepiR",
+    description: "Developed a comprehensive R package for post-EWAS (Epigenome-Wide Association Study) analysis and visualization. The package streamlines DNA methylation analysis with tools for Manhattan plots, DMR detection, gene annotation, and pathway analysis.",
+    tags: ["R", "Bioinformatics", "Package Development", "DNA Methylation", "EWAS"],
+    image: tkiepiLogo,
+    link: "https://github.com/Hobbeist/TKIepiR",
+    longDescription: "An R package that implements a complete post-EWAS analysis pipeline used by the Diabetes & Obesity group at Telethon Kids Institute. It provides tools for visualizing results, finding differentially methylated regions, and performing pathway analysis.",
+    challenges: [
+      "Creating efficient tools for large-scale methylation data analysis",
+      "Implementing robust statistical methods for DMR detection",
+      "Integrating multiple analysis approaches (DMRcate, methylGSA, missMethyl)",
+      "Building reproducible visualization tools for complex genomic data"
+    ],
+    solutions: [
+      "Developed streamlined functions for CpG annotation and visualization",
+      "Implemented DMRcate integration for region detection",
+      "Created comprehensive pathway analysis pipeline",
+      "Built publication-ready plotting functions"
+    ],
+    impact: [
+      "Standardized post-EWAS analysis workflow at TKI",
+      "Accelerated epigenetic research through automated tools",
+      "Enabled reproducible methylation analysis",
+      "Facilitated interpretation of complex methylation data"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "Bioconductor", "Statistics"]
+      },
+      {
+        category: "Analysis Tools",
+        items: ["DMRcate", "methylGSA", "missMethyl"]
+      },
+      {
+        category: "Visualization",
+        items: ["ggplot2", "Manhattan Plots", "Volcano Plots"]
       }
     ]
   }
@@ -186,7 +351,7 @@ export default function Projects() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        {projects.slice(0, 3).map((project, index) => (
+        {projects.slice(0, 7).map((project, index) => (
           <motion.div
             key={index}
             variants={item}
