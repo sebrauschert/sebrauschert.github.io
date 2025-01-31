@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import portrait from '../assets/portrait.jpeg';
+import contact from '../assets/contact.png';
 
 export default function Contact() {
   const contactMethods = [
@@ -38,6 +40,25 @@ export default function Contact() {
 
   return (
     <div className="container mx-auto px-4 py-24">
+      <motion.div 
+        className="flex flex-col items-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <motion.div
+          className="w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-[#88C0D0] shadow-lg"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img 
+            src={portrait} 
+            alt="Sebastian Rauschert" 
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </motion.div>
+
       <motion.h2 
         className="text-3xl font-bold text-[#88C0D0] text-center mb-16"
         initial={{ opacity: 0, y: -20 }}
