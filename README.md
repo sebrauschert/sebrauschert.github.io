@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Sebastian Rauschert's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my professional portfolio website repository. This site showcases my work as a Principal Data Scientist specializing in computational biology, machine learning, and reproducible research.
 
-Currently, two official plugins are available:
+## About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I'm a technical leader with 12+ years of experience in data science, computational biology, and machine learning. I specialize in developing fit-for-purpose solutions for business optimization and scientific discovery, with a strong focus on reproducible research and production-ready implementations.
 
-## Expanding the ESLint configuration
+## Website Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Professional Experience**: Detailed overview of my roles at INSiGENe, Minderoo Foundation, and Telethon Kids Institute
+- **Project Showcase**: Collection of data science and computational biology projects
+- **Technical Blog**: Insights and experiences in data science and reproducible research
+- **Skills & Expertise**: Comprehensive list of technical skills and technologies
 
-- Configure the top-level `parserOptions` property like this:
+## Technical Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+This portfolio is built with:
+- React + TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- Framer Motion for animations
+- GitHub Pages for hosting
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Visit the Site
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+You can view my portfolio at [https://sebrauschert.github.io](https://sebrauschert.github.io)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Contact
+
+Feel free to reach out to me at seb.rauschert@gmail.com or connect with me on professional networks listed on the website.
