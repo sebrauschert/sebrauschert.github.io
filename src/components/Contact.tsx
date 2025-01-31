@@ -164,7 +164,7 @@ export default function Contact() {
           <div className="bg-[#3B4252] p-6 rounded-lg">
             <h4 className="text-xl font-semibold text-[#81A1C1] mb-4">Contact Information</h4>
             <div className="space-y-3 text-[#D8DEE9]">
-              <p>📍 88/51 Queen Victoria Street, Fremantle, 6160</p>
+              <p>📍 Fremantle, Western Australia</p>
               <p>📧 seb.rauschert@gmail.com</p>
               <p>🔬 Principal Data Scientist at INSiGENe</p>
             </div>

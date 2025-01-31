@@ -7,6 +7,7 @@ import Resume from './components/Resume';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
     { name: 'Home', id: 'home' },
@@ -22,10 +23,31 @@ function App() {
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
+        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl px-4"
       >
-        <div className="bg-[#3B4252]/80 backdrop-blur-lg rounded-full px-6 py-3 shadow-lg">
-          <ul className="flex space-x-8">
+        <div className="bg-[#3B4252]/80 backdrop-blur-lg rounded-full px-3 py-2 md:px-6 md:py-3 shadow-lg">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex justify-between items-center">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-[#D8DEE9] p-2"
+            >
+              <span className="sr-only">Open menu</span>
+              {isMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+            <span className="text-[#ECEFF4] font-medium">Menu</span>
+          </div>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex space-x-8">
             {navigation.map((item) => (
               <li key={item.id}>
                 <button
@@ -50,6 +72,34 @@ function App() {
               </li>
             ))}
           </ul>
+
+          {/* Mobile Navigation Menu */}
+          <motion.div
+            initial={false}
+            animate={{ height: isMenuOpen ? 'auto' : 0 }}
+            className="md:hidden overflow-hidden"
+          >
+            <ul className="pt-2 space-y-1">
+              {navigation.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => {
+                      setActiveSection(item.id);
+                      document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                      setIsMenuOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                      activeSection === item.id 
+                        ? 'bg-[#88C0D0]/20 text-[#ECEFF4]' 
+                        : 'text-[#D8DEE9] hover:bg-[#88C0D0]/10 hover:text-[#ECEFF4]'
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </motion.nav>
 
