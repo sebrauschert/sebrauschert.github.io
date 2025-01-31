@@ -25,9 +25,14 @@ function App() {
         animate={{ y: 0 }}
         className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl px-4"
       >
-        <div className="bg-[#3B4252]/80 backdrop-blur-lg rounded-full px-3 py-2 md:px-6 md:py-3 shadow-lg">
+        <motion.div 
+          className="bg-[#3B4252]/80 backdrop-blur-lg rounded-3xl shadow-lg overflow-hidden"
+          animate={{
+            borderRadius: isMenuOpen ? "1.5rem" : "9999px"
+          }}
+        >
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex justify-between items-center">
+          <div className="md:hidden flex justify-between items-center px-4 py-3">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-[#D8DEE9] p-2"
@@ -47,7 +52,7 @@ function App() {
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-8">
+          <ul className="hidden md:flex space-x-8 px-6 py-3">
             {navigation.map((item) => (
               <li key={item.id}>
                 <button
@@ -76,10 +81,13 @@ function App() {
           {/* Mobile Navigation Menu */}
           <motion.div
             initial={false}
-            animate={{ height: isMenuOpen ? 'auto' : 0 }}
+            animate={{ 
+              height: isMenuOpen ? 'auto' : 0,
+              opacity: isMenuOpen ? 1 : 0
+            }}
             className="md:hidden overflow-hidden"
           >
-            <ul className="pt-2 space-y-1">
+            <ul className="px-4 pb-4 space-y-2">
               {navigation.map((item) => (
                 <li key={item.id}>
                   <button
@@ -88,7 +96,7 @@ function App() {
                       document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
                       setIsMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                    className={`w-full text-left px-4 py-2 text-sm font-medium rounded-xl transition-colors ${
                       activeSection === item.id 
                         ? 'bg-[#88C0D0]/20 text-[#ECEFF4]' 
                         : 'text-[#D8DEE9] hover:bg-[#88C0D0]/10 hover:text-[#ECEFF4]'
@@ -100,7 +108,7 @@ function App() {
               ))}
             </ul>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.nav>
 
       {/* Hero Section */}
