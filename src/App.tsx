@@ -216,7 +216,7 @@ function App() {
         {/* Content Sections */}
         <main className="relative">
           {/* Hero Section */}
-          <section id="home" className="min-h-screen flex items-center justify-center" aria-label="Introduction">
+          <section id="home" className="min-h-screen flex items-center justify-center pt-24 md:pt-0" aria-label="Introduction">
             <div className="container mx-auto px-4 z-10">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -225,12 +225,12 @@ function App() {
                 className="text-left max-w-6xl mx-auto"
               >
                 <motion.h1 
-                  className="font-space-grotesk text-6xl sm:text-7xl md:text-8xl lg:text-[12rem] xl:text-[14rem] font-bold mb-6 text-[#BF616A] tracking-tight leading-[0.9]"
+                  className="font-space-grotesk text-5xl sm:text-6xl md:text-8xl lg:text-[12rem] xl:text-[14rem] font-bold mb-4 md:mb-6 text-[#BF616A] tracking-tight leading-[0.9]"
                 >
                   Sebastian<br />Rauschert
                 </motion.h1>
 
-                <p className="text-xl md:text-2xl mb-4 text-[#88C0D0] flex items-center gap-2">
+                <p className="text-lg md:text-xl mb-4 text-[#88C0D0] flex items-center gap-2">
                   Consultant & Principal Data Scientist at{" "}
                   <a 
                     href="https://insigene.com" 
@@ -251,14 +251,14 @@ function App() {
                   </a>
                 </p>
 
-                <div className="text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
+                <div className="text-base md:text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
                   <h2 className="sr-only">About Me</h2>
                   <p>
-                    Pioneering reproducible analytics in data science with a proven 12-year track record. As a technical leader, I transform complex research challenges into production-ready solutions that stand the test of time. My expertise lies in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. At INSiGENe, I develop transparent, verifiable analytics solutions for computational biology and data analytics challenges. My approach combines scientific rigor with business acumen, ensuring that every analysis can be trusted, reproduced, and built upon.
+                    Pioneering reproducible analytics in data science with a proven 12-year track record. As a technical leader, I transform complex research challenges into production-ready solutions that stand the test of time. My expertise lies in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. At INSiGENe, I lead teams in developing transparent, verifiable analytics solutions for computational biology and machine learning challenges. My approach combines scientific rigor with business acumen, ensuring that every analysis can be trusted, reproduced, and built upon.
                   </p>
                 </div>
 
-                <div className="flex gap-4" role="navigation" aria-label="Quick actions">
+                <div className="flex flex-col sm:flex-row gap-4" role="navigation" aria-label="Quick actions">
                   <a 
                     href="#contact" 
                     className="inline-flex items-center gap-2 bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5"
