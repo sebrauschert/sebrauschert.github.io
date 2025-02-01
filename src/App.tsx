@@ -43,8 +43,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#2E3440] text-[#ECEFF4]">
+      <header className="sr-only">
+        <h1>Sebastian Rauschert - Principal Data Scientist</h1>
+        <p>Technical leader in data science, computational biology, and machine learning</p>
+      </header>
+
       {/* Fixed Background Container */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0" aria-hidden="true">
         <AnimatePresence mode="wait">
           {currentBackground === 'home' ? (
             <motion.div
@@ -91,6 +96,8 @@ function App() {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           className="fixed top-0 md:top-6 left-0 md:left-1/2 w-full md:w-[90%] md:max-w-3xl z-50 md:transform md:-translate-x-1/2"
+          role="navigation"
+          aria-label="Main navigation"
         >
           <motion.div 
             className="backdrop-blur-sm"
@@ -207,9 +214,9 @@ function App() {
         </motion.nav>
 
         {/* Content Sections */}
-        <motion.div className="relative">
+        <main className="relative">
           {/* Hero Section */}
-          <section id="home" className="min-h-screen flex items-center justify-center">
+          <section id="home" className="min-h-screen flex items-center justify-center" aria-label="Introduction">
             <div className="container mx-auto px-4 z-10">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -224,54 +231,51 @@ function App() {
                 </motion.h1>
 
                 <p className="text-xl md:text-2xl mb-4 text-[#88C0D0] flex items-center gap-2">
-                  Principal Data Scientist at{" "}
+                  Consultant & Principal Data Scientist at{" "}
                   <a 
                     href="https://insigene.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1] inline-flex items-center gap-1"
+                    aria-label="INSiGENe website"
                   >
                     INSiGENe
                     <svg 
                       className="w-4 h-4"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      aria-hidden="true"
                     >
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </a>
                 </p>
 
-                <p className="text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
-                  Technical leader with 12+ years in data science, computational biology, and machine learning. 
-                  Specializing in fit-for-purpose solutions for business optimization and scientific discovery. 
-                  Expert in leading cross-functional teams and bridging research with stakeholder needs through reproducible, production-ready solutions.
-                </p>
+                <div className="text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
+                  <h2 className="sr-only">About Me</h2>
+                  <p>
+                    Pioneering reproducible analytics in data science with a proven 12-year track record. As a technical leader, I transform complex research challenges into production-ready solutions that stand the test of time. My expertise lies in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. At INSiGENe, I develop transparent, verifiable analytics solutions for computational biology and data analytics challenges. My approach combines scientific rigor with business acumen, ensuring that every analysis can be trusted, reproduced, and built upon.
+                  </p>
+                </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4" role="navigation" aria-label="Quick actions">
                   <a 
                     href="#contact" 
                     className="inline-flex items-center gap-2 bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5"
+                    aria-label="Get in touch"
                   >
                     Get in Touch
-                    <svg 
-                      className="w-4 h-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
+                    <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </a>
                   <a 
                     href="#projects" 
                     className="inline-flex items-center gap-2 border-2 border-[#88C0D0] text-[#88C0D0] hover:bg-[#88C0D0] hover:text-[#2E3440] font-medium px-6 py-3 rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5"
+                    aria-label="View my projects"
                   >
                     View Projects
-                    <svg 
-                      className="w-4 h-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
+                    <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </a>
@@ -281,38 +285,32 @@ function App() {
           </section>
 
           {/* Projects Section */}
-          <motion.section 
+          <section 
             id="projects" 
             className="min-h-screen"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            aria-label="Projects"
           >
             <Projects />
-          </motion.section>
+          </section>
 
           {/* Resume Section */}
-          <motion.section 
+          <section 
             id="resume" 
             className="min-h-screen"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            aria-label="Resume"
           >
             <Resume />
-          </motion.section>
+          </section>
 
           {/* Contact Section */}
-          <motion.section 
+          <section 
             id="contact" 
             className="min-h-screen"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            aria-label="Contact"
           >
             <Contact />
-          </motion.section>
-        </motion.div>
+          </section>
+        </main>
       </div>
     </div>
   );
