@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Projects from './components/Projects';
-import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
 import portrait from './assets/portrait.jpeg';
@@ -39,7 +38,6 @@ function App() {
     { name: 'Home', id: 'home' },
     { name: 'Projects', id: 'projects' },
     { name: 'Resume', id: 'resume' },
-    { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
   ];
 
@@ -92,57 +90,65 @@ function App() {
         <motion.nav 
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl px-4"
+          className="fixed top-0 md:top-6 left-0 md:left-1/2 w-full md:w-[90%] md:max-w-3xl z-50 md:transform md:-translate-x-1/2"
         >
           <motion.div 
-            className="bg-[#3B4252]/80 backdrop-blur-lg shadow-lg overflow-hidden"
-            initial={{ borderRadius: "9999px" }}
-            animate={{ 
-              borderRadius: isMenuOpen ? "1.5rem" : "9999px"
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut"
-            }}
+            className="backdrop-blur-sm"
           >
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex justify-between items-center px-4 py-3">
+            <div className="md:hidden flex justify-end items-center px-8 py-6">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-[#D8DEE9] p-2"
+                className="text-[#D8DEE9] p-2 hover:text-[#88C0D0] transition-colors"
               >
                 <span className="sr-only">Open menu</span>
-                {isMenuOpen ? (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
+                <motion.div
+                  animate={{ rotate: isMenuOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.svg 
+                    className="h-8 w-8" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                    animate={{ opacity: isMenuOpen ? 0 : 1 }}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+                  </motion.svg>
+                  {isMenuOpen && (
+                    <motion.svg 
+                      className="h-8 w-8 absolute top-0 left-0" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 12H4" />
+                    </motion.svg>
+                  )}
+                </motion.div>
               </button>
-              <span className="text-[#ECEFF4] font-medium">Menu</span>
             </div>
 
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex space-x-8 px-6 py-3">
+            <ul className="hidden md:flex items-center justify-center space-x-12 h-12">
               {navigation.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="h-full flex items-center">
                   <button
                     onClick={() => {
                       setActiveSection(item.id);
                       document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className={`relative px-3 py-1.5 text-sm font-medium transition-colors ${
+                    className={`relative h-full px-6 flex items-center text-lg font-medium transition-colors ${
                       activeSection === item.id ? 'text-[#ECEFF4]' : 'text-[#D8DEE9] hover:text-[#ECEFF4]'
                     }`}
                   >
                     {activeSection === item.id && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute inset-0 bg-[#88C0D0]/20 rounded-full"
-                        style={{ borderRadius: 9999 }}
+                        className="absolute inset-0 bg-[#88C0D0]/10 rounded-full"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -154,31 +160,46 @@ function App() {
 
             {/* Mobile Navigation Menu */}
             <motion.div
-              initial={false}
               animate={{ 
-                height: isMenuOpen ? 'auto' : 0,
-                opacity: isMenuOpen ? 1 : 0
+                opacity: isMenuOpen ? 1 : 0,
+                height: isMenuOpen ? "auto" : 0
               }}
-              className="md:hidden overflow-hidden"
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut"
+              }}
+              className="md:hidden overflow-hidden backdrop-blur-lg"
             >
-              <ul className="px-4 pb-4 space-y-2">
+              <ul className="px-8 py-6 space-y-4">
                 {navigation.map((item) => (
-                  <li key={item.id}>
+                  <motion.li 
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: isMenuOpen ? 0.3 : 0 }}
+                  >
                     <button
                       onClick={() => {
                         setActiveSection(item.id);
                         document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
                         setIsMenuOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2 text-sm font-medium rounded-xl transition-colors ${
+                      className={`relative w-full text-left px-6 py-3 text-xl font-medium transition-colors ${
                         activeSection === item.id 
-                          ? 'bg-[#88C0D0]/20 text-[#ECEFF4]' 
-                          : 'text-[#D8DEE9] hover:bg-[#88C0D0]/10 hover:text-[#ECEFF4]'
+                          ? 'text-[#ECEFF4]' 
+                          : 'text-[#D8DEE9] hover:text-[#ECEFF4]'
                       }`}
                     >
-                      {item.name}
+                      {activeSection === item.id && (
+                        <motion.div
+                          layoutId="activeSection-mobile"
+                          className="absolute inset-0 bg-[#88C0D0]/10 rounded-full"
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                        />
+                      )}
+                      <span className="relative z-10">{item.name}</span>
                     </button>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
@@ -197,35 +218,64 @@ function App() {
                 className="text-left max-w-6xl mx-auto"
               >
                 <motion.h1 
-                  className="text-7xl md:text-8xl font-bold mb-6 text-[#BF616A] whitespace-nowrap overflow-visible"
+                  className="font-space-grotesk text-6xl sm:text-7xl md:text-8xl lg:text-[12rem] xl:text-[14rem] font-bold mb-6 text-[#BF616A] tracking-tight leading-[0.9]"
                 >
-                  Sebastian Rauschert
+                  Sebastian<br />Rauschert
                 </motion.h1>
-                <p className="text-xl md:text-2xl mb-4 text-[#88C0D0]">
+
+                <p className="text-xl md:text-2xl mb-4 text-[#88C0D0] flex items-center gap-2">
                   Principal Data Scientist at{" "}
                   <a 
                     href="https://insigene.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1]"
+                    className="hover:text-[#81A1C1] transition-colors underline decoration-[#88C0D0]/30 hover:decoration-[#81A1C1] inline-flex items-center gap-1"
                   >
                     INSiGENe
+                    <svg 
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
                   </a>
                 </p>
-                <p className="text-lg text-[#D8DEE9] mb-8 max-w-3xl">
+
+                <p className="text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
                   Technical leader with 12+ years in data science, computational biology, and machine learning. 
                   Specializing in fit-for-purpose solutions for business optimization and scientific discovery. 
                   Expert in leading cross-functional teams and bridging research with stakeholder needs through reproducible, production-ready solutions.
                 </p>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", bounce: 0.4, delay: 0.2 }}
-                >
-                  <a href="#contact" className="inline-block bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-colors">
+
+                <div className="flex gap-4">
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center gap-2 bg-[#88C0D0] hover:bg-[#81A1C1] text-[#2E3440] font-medium px-6 py-3 rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     Get in Touch
+                    <svg 
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
                   </a>
-                </motion.div>
+                  <a 
+                    href="#projects" 
+                    className="inline-flex items-center gap-2 border-2 border-[#88C0D0] text-[#88C0D0] hover:bg-[#88C0D0] hover:text-[#2E3440] font-medium px-6 py-3 rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    View Projects
+                    <svg 
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
               </motion.div>
             </div>
           </section>
@@ -250,17 +300,6 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <Resume />
-          </motion.section>
-
-          {/* Blog Section */}
-          <motion.section 
-            id="blog" 
-            className="min-h-screen"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Blog />
           </motion.section>
 
           {/* Contact Section */}

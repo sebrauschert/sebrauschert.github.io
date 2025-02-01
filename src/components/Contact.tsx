@@ -145,7 +145,7 @@ export default function Contact() {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/sebastian-rauschert/"
+                href="https://www.linkedin.com/in/sebastian-rauschert-836760a0/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#D8DEE9] hover:text-[#88C0D0] transition-colors"
