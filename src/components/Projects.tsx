@@ -71,7 +71,7 @@ const projects: Project[] = [
     description: "Created an interactive Shiny dashboard for visualizing and analyzing environmental DNA data. Features a map-based interface for exploring DNA detections across a region, and a large language model chatbot for answering questions about the data.",
     tags: ["R", "Shiny", "Machine Learning", "leaflet"],
     image: ednaImage,
-    link: "edna.minderoo.org",
+    link: "https://edna.minderoo.org",
     longDescription: "An interactive dashboard built with R Shiny that provides visualization and analysis of environmental DNA data.",
     challenges: [
       "Implementing responsive visualizations for large datasets",

@@ -230,8 +230,8 @@ function App() {
                   Sebastian<br />Rauschert
                 </motion.h1>
 
-                <p className="text-lg md:text-xl mb-4 text-[#88C0D0] flex items-center gap-2">
-                  Consultant & Principal Data Scientist at{" "}
+                <p className="text-lg md:text-xl mb-4 text-[#88C0D0] flex flex-wrap items-center gap-2">
+                  <span className="whitespace-nowrap">Consultant & Principal Data Scientist at</span>
                   <a 
                     href="https://insigene.com" 
                     target="_blank" 
