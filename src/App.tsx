@@ -254,7 +254,7 @@ function App() {
                 <div className="text-base md:text-lg text-[#D8DEE9] mb-8 max-w-3xl leading-relaxed">
                   <h2 className="sr-only">About Me</h2>
                   <p>
-                    Pioneering reproducible analytics in data science with a proven 12-year track record. As a technical leader, I transform complex research challenges into production-ready solutions that stand the test of time. My expertise lies in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. At INSiGENe, I lead teams in developing transparent, verifiable analytics solutions for computational biology and machine learning challenges. My approach combines scientific rigor with business acumen, ensuring that every analysis can be trusted, reproduced, and built upon.
+                    Pioneering reproducible analytics in data science with a proven 12-year track record. As a technical leader, I transform complex research challenges into production-ready solutions that stand the test of time. My expertise lies in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. At INSiGENe, I lead projects developing transparent, verifiable analytics solutions for computational biology and data analytics challenges. My approach combines scientific rigor with business acumen, ensuring that every analysis can be trusted, reproduced, and built upon.
                   </p>
                 </div>
 
