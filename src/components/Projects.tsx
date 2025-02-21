@@ -28,7 +28,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "toth: Reproducible Analytics Framework",
+    title: "toth: Reproducible Analytics Framework (In Progress)",
     description: "An R package providing a comprehensive framework for setting up reproducible analytics projects. Integrates best practices for project organization, data version control with DVC, containerization with Docker, and dependency management with renv.",
     tags: ["R", "Package Development", "DVC", "Docker", "Reproducible Research"],
     image: tothLogo,
