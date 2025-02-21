@@ -8,6 +8,7 @@ import dnaSmokeLogo from '../assets/DNAsmokeR.png';
 import insigeneLogo from '../assets/insigene.png';
 import tkiepiLogo from '../assets/tkiepi.png';
 import portalLogo from '../assets/portal.png';
+import tothLogo from '../assets/toth.png';
 
 interface Project {
   title: string;
@@ -26,6 +27,46 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "toth: Reproducible Analytics Framework",
+    description: "An R package providing a comprehensive framework for setting up reproducible analytics projects. Integrates best practices for project organization, data version control with DVC, containerization with Docker, and dependency management with renv.",
+    tags: ["R", "Package Development", "DVC", "Docker", "Reproducible Research"],
+    image: tothLogo,
+    link: "https://sebrauschert.github.io/toth/",
+    longDescription: "toth is a comprehensive R package that streamlines the setup and management of reproducible analytics projects. It provides an integrated framework that combines modern best practices in data science, including project organization, data version control, containerization, and dependency management.",
+    challenges: [
+      "Creating a standardized yet flexible project structure",
+      "Integrating multiple tools (DVC, Docker, renv) seamlessly",
+      "Ensuring reproducibility across different environments",
+      "Building user-friendly interfaces for complex workflows"
+    ],
+    solutions: [
+      "Developed modular project templates with customization options",
+      "Created unified interfaces for DVC and Docker operations",
+      "Implemented automated dependency tracking with renv",
+      "Built comprehensive documentation and getting started guides"
+    ],
+    impact: [
+      "Standardized reproducible analytics workflows",
+      "Reduced project setup time from hours to minutes",
+      "Enabled version control for large data files",
+      "Facilitated collaboration through containerized environments"
+    ],
+    technologies: [
+      {
+        category: "Core Technologies",
+        items: ["R", "DVC", "Docker", "renv"]
+      },
+      {
+        category: "Development Tools",
+        items: ["roxygen2", "pkgdown", "devtools"]
+      },
+      {
+        category: "Documentation",
+        items: ["Quarto", "R Markdown", "pkgdown"]
+      }
+    ]
+  },
   {
     title: "INSiGENe Client Portal (In Progress)",
     description: "Building a full-stack web application for secure file sharing and user management at INSiGENe. Features include user authentication, file management, and administrative controls, built with React, FastAPI, and PostgreSQL.",

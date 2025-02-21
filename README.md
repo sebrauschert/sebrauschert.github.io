@@ -4,14 +4,21 @@ Welcome to my professional portfolio website repository. This site showcases my 
 
 ## About Me
 
-I'm a technical leader pioneering reproducible analytics in data science with a proven 12-year track record. I transform complex research challenges into production-ready solutions that stand the test of time, specializing in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications.
+I'm a technical leader pioneering reproducible analytics in data science with a proven 12-year track record. I transform complex research challenges into production-ready solutions that stand the test of time, specializing in building scalable, reproducible data science frameworks that bridge the gap between cutting-edge research and practical business applications. I'm also the creator of [toth](https://sebrauschert.github.io/toth/), a comprehensive R package for reproducible analytics project management.
+
+## Featured Projects
+
+- **toth**: A comprehensive R package for setting up and managing reproducible analytics projects
+- **Client Portal**: Full-stack web application for secure file sharing and project management
+- **Environmental Dashboard**: Interactive visualization platform for environmental DNA data
+- And more data science and computational biology projects
 
 ## Website Features
 
 - **Modern Design**: Responsive layout with smooth animations and intuitive navigation
 - **Professional Experience**: Detailed overview of my work at INSiGENe and previous roles
-- **Project Showcase**: Curated collection of data science and computational biology projects
-- **Skills & Expertise**: Comprehensive overview of technical expertise in reproducible analytics
+- **Project Showcase**: Curated collection of data science and reproducible analytics projects
+- **Skills & Expertise**: Comprehensive overview of technical expertise
 - **Mobile-First**: Optimized viewing experience across all devices
 
 ## Technical Stack

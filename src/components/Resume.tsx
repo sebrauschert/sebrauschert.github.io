@@ -77,10 +77,11 @@ const education: Education[] = [
 
 const skills = {
   "Programming Languages": ["R", "Python", "SQL", "Bash/Shell"],
-  "Data Science": ["Statistical Analysis", "Machine Learning", "Data Visualization", "Reproducible Analytics"],
-  "Tools & Technologies": ["Docker", "Git", "Conda", "High-Performance Computing", "Cloud Computing"],
+  "Data Science & Analytics": ["Reproducible Analytics", "Statistical Analysis", "Machine Learning", "Data Visualization"],
+  "Tools & Technologies": ["Docker", "DVC", "Git", "renv", "Conda", "High-Performance Computing", "Cloud Computing"],
   "Databases": ["PostgreSQL", "SQLite"],
-  "Other": ["Technical Writing", "Project Management", "Team Leadership"]
+  "Package Development": ["R Package Development", "Documentation", "Testing", "CI/CD"],
+  "Other": ["Technical Writing", "Project Management", "Team Leadership", "Open Source Development"]
 };
 
 export default function Resume() {
