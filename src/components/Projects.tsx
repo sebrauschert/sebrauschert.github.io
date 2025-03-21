@@ -28,12 +28,12 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "toth: Reproducible Analytics Framework (In Progress)",
+    title: "thoth: Reproducible Analytics Framework (In Progress)",
     description: "An R package providing a comprehensive framework for setting up reproducible analytics projects. Integrates best practices for project organization, data version control with DVC, containerization with Docker, and dependency management with renv.",
     tags: ["R", "Package Development", "DVC", "Docker", "Reproducible Research"],
     image: tothLogo,
-    link: "https://sebrauschert.github.io/toth/",
-    longDescription: "toth is a comprehensive R package that streamlines the setup and management of reproducible analytics projects. It provides an integrated framework that combines modern best practices in data science, including project organization, data version control, containerization, and dependency management.",
+    link: "https://sebrauschert.github.io/thoth/",
+    longDescription: "thoth is a comprehensive R package that streamlines the setup and management of reproducible analytics projects. It provides an integrated framework that combines modern best practices in data science, including project organization, data version control, containerization, and dependency management.",
     challenges: [
       "Creating a standardized yet flexible project structure",
       "Integrating multiple tools (DVC, Docker, renv) seamlessly",
